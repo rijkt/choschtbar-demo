@@ -30,15 +30,20 @@ const upload = async (key, pw, pdf) => {
 
 const submitHandler = async event => {
     event.preventDefault() // prevent submitting before fetching finishes
+    const pw = document.getElementById('pw').value
+    if (!pw) {
+        console.warn('password empty')
+        return
+    }
     const restInput = document.getElementById('rest')
     const aldiInput = document.getElementById('aldi')
     const restUpdate = restInput.files.length > 0
     const aldiUpdate = aldiInput.files.length > 0
     if (restUpdate) {
-        upload('Tourenplan ChoschtBar Rest.pdf', 'todo', restInput.files[0])
+        upload('Tourenplan ChoschtBar Rest.pdf', pw, restInput.files[0])
     }
     if (aldiUpdate) {
-        upload('Tourenplan ChoschtBar Aldi.pdf', 'todo', aldiInput.files[0])
+        upload('Tourenplan ChoschtBar Aldi.pdf', pw, aldiInput.files[0])
     }
    
 }
