@@ -6,15 +6,19 @@
     <title>Choschtbar Touren aktualisieren</title>
     <meta name="author" content="Pascal Ellenberger">
     <meta name="description" content="Choschtbar-Touren aktualisieren">
-    <link rel="stylesheet" href="./shared.css">
+    <link rel="stylesheet" href="./upload.css">
   </head>
   <body>
     <h1>Choschtbar Touren aktualisieren</h1>
     <form>
-      <label for="rest">Rest</label>
-      <input type="file" id="rest" accept=".pdf">
-      <label for="aldi">Aldi</label>
-      <input type="file" id="aldi" accept=".pdf">
+      <div class="input-container">
+        <label for="rest">Altstadt-, Bauhaus/Sandwich- und Waber-Touren:</label>
+        <input type="file" id="rest" accept=".pdf">
+        <label for="aldi">Aldi-Tour:</label>
+        <input type="file" id="aldi" accept=".pdf">
+        <label for="pw">Passwort:</label>
+        <input type="password" id="pw" required>
+      </div>
       <input id="upload" type="submit" value="Aktualisieren">
     </form>
     <script src="./upload.js"></script>
