@@ -11,14 +11,14 @@ a {
 }
 
 body {
-  margin: 0 auto;
-  max-width: 50em;
-  font-family: "Helvetica", "Arial", sans-serif;
-  line-height: 1.5;
-  padding: 4em 1em;
-  color: var(--body-color);
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: "Helvetica", "Arial", sans-serif;
+    line-height: 1.5;
+    padding: 4em 1em;
+    color: var(--body-color);
 }
 
 h1, h2, strong {
-  color: var(--title-color);
+    color: var(--title-color);
 }
