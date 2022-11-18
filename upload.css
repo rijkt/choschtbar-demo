@@ -10,6 +10,6 @@
     color: var(--secondary-color);
 }
 
-#error-container:empty {
-    border: none;
+#success-container {
+    color: var(--main-color);
 }

@@ -4,9 +4,12 @@ const setErrorMessage = errorMessage => {
     document.getElementById('error-container').innerHTML = errorMessage
 }
 
+const setSuccessMessage = message => {
+    document.getElementById('success-container').innerHTML = message
+}
+
 const upload = async (key, pw, pdf) => {
-    setErrorMessage('')
-    const body = JSON.stringify({ // todo: directly send json, don't stringify
+    const body = JSON.stringify({
         pw,
         key
     })
@@ -40,8 +43,14 @@ const upload = async (key, pw, pdf) => {
         'x-amz-acl': 'public-read'
     }
     await fetch(presignedUrl, {method: 'PUT', headers: uploadHeaders, body: pdf})
-        .then(res => res.json())
-        .then(data => console.log(data)) // todo: error
+        .then(res => {
+            if (res.ok) {
+                setSuccessMessage('Upload successful')
+            } else {
+                console.log(res.statusText)
+                setErrorMessage(res.statusText)
+            }
+        })
         .catch(err => {
             console.log(err)
             setErrorMessage(err)
@@ -51,6 +60,8 @@ const upload = async (key, pw, pdf) => {
 
 const submitHandler = async event => {
     event.preventDefault() // prevent submitting before fetching finishes
+    setErrorMessage('')
+    setSuccessMessage('')
     const pw = document.getElementById('pw').value
     if (!pw) {
         const warning = 'Empty Password'
