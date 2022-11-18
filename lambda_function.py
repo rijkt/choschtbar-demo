@@ -10,7 +10,7 @@ def lambda_handler(event, context):
     if (required_pw != pw):
         return {
             'statusCode': 401,
-            'body': 'Wrong password',
+            'body': '{ "error": "Wrong password" }',
             'headers': {
                 'Access-Control-Allow-Origin': '*'
             }

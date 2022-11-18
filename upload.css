@@ -6,3 +6,10 @@
     gap: 10px;
 }
 
+#error-container {
+    color: var(--secondary-color);
+}
+
+#error-container:empty {
+    border: none;
+}
